@@ -17,7 +17,7 @@ steps:
   - name: 构建镜像&PUSH镜像到Hub（PROD）.
     image: plugins/docker
     settings:
-      dockerfile: ./release/prod/Dockerfile
+      dockerfile: ./release/Dockerfile
       use_cache: true
       repo: ccr.ccs.tencentyun.com/windwithlife/mini-web
       registry: https://ccr.ccs.tencentyun.com
@@ -73,7 +73,7 @@ steps:
   - name: 构建镜像&PUSH镜像到Hub(UAT).
     image: plugins/docker
     settings:
-      dockerfile: ./release/prod/Dockerfile
+      dockerfile: ./release/Dockerfile
       use_cache: true
       repo: ccr.ccs.tencentyun.com/windwithlife/mini-web
       registry: https://ccr.ccs.tencentyun.com/
