@@ -45,7 +45,7 @@ const config = {
     }
   },
   h5: {
-    publicPath: '/',
+    publicPath: '/mini-web/',
     staticDirectory: 'static',
     postcss: {
       autoprefixer: {
