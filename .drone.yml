@@ -36,6 +36,7 @@ steps:
       kubeconfig:
         from_secret: kubeconfig-prod
       app_name: mini-web
+      path_name: mini-web
       image_name: ccr.ccs.tencentyun.com/windwithlife/mini-web
       soa_gateway: m.zhangyongqiao.com
       soa_gateway_cert: m-default-secret
@@ -92,6 +93,7 @@ steps:
       kubeconfig:
         from_secret: kubeconfig-uat
       app_name: mini-web
+      path_name: mini-web
       image_name: ccr.ccs.tencentyun.com/windwithlife/mini-web
       soa_gateway: m.zhangyongqiao.com
       soa_gateway_cert: m-default-secret
