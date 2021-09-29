@@ -34,7 +34,7 @@ steps:
     settings:
       yaml: ./release/deployment.yaml
       kubeconfig:
-        from_secret: kubeconfig
+        from_secret: kubeconfig-prod
       app_name: mini-web
       image_name: ccr.ccs.tencentyun.com/windwithlife/mini-web
       soa_gateway: m.zhangyongqiao.com
@@ -90,7 +90,7 @@ steps:
     settings:
       yaml: ./release/deployment.yaml
       kubeconfig:
-        from_secret: kubeconfig
+        from_secret: kubeconfig-uat
       app_name: mini-web
       image_name: ccr.ccs.tencentyun.com/windwithlife/mini-web
       soa_gateway: m.zhangyongqiao.com
