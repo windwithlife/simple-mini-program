@@ -6,7 +6,7 @@ class PageRouter{
     }
     gotoPage(params){
         if (params?.url){
-            Taro.navigateTo({url:params.url});
+            Taro.navigateTo({...params});
         }
     }
     getParams(){

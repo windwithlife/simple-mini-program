@@ -5,15 +5,20 @@ import { AtButton ,AtIcon} from 'taro-ui'
 import Client from '../../common/client/client';
 
 import "taro-ui/dist/style/components/button.scss" // 按需引入
-import './index.less'
+
 import "taro-ui/dist/style/components/icon.scss";
 import BasePage from '../../common/page/BasePage';
+import ClientUser from '../../common/user/ClientUser';
+import './index.less'
 
+const USER_INFO = "__userinfo__";
+
+let defaultAvatarUrl = 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png';
 
 const userInfo = {
   profile:{
     avatarUrl: '',
-    nickname: '测试用户名',
+    nickname: '匿名用户',
     newFollows: 300,
     eventCount: 40,
     followeds: 400,
@@ -27,8 +32,11 @@ export default class Index extends BasePage {
   constructor(props) {
     super(props);
     this.state = {
-      userInfo: Client.getUserInfo(),
-      isLogin: Client.isLogin(),
+      avatarUrl: defaultAvatarUrl,
+      nickname: '匿名用户',
+      gender: '',
+      userInfo: ClientUser.getUserInfo(),
+      isLogin: ClientUser.isLogin(),
       searchValue: ""
     };
   }
@@ -52,6 +60,16 @@ export default class Index extends BasePage {
 
   componentDidHide() { }
 
+  onLogin = () =>{
+    ClientUser.obtainUserInfo().then((res)=> {
+      console.log(res);
+      let gender = '女';
+      if (res.gender === 0){
+        gender = '男';
+      }
+      this.setState({userInfo:res,isLogin:true,avatarUrl:res.avatarUrl,nickname:res.nickName,gender:gender})
+    });
+  }
   signIn=()=> {
     //PageHelper.gotoPage({url:'/pages/user/login/index'});
     this.gotoPage({url:'/pages/user/login/index'});
@@ -73,7 +91,7 @@ export default class Index extends BasePage {
   goPage =(pageName) =>{
     console.log('test gotopage')
     this.gotoPage({
-      url: `/pages/list/index`
+      url: `/pages/history/index`
     })
     // this.showToast({
     //   title: "正在开发中，敬请期待",
@@ -83,26 +101,30 @@ export default class Index extends BasePage {
   
 
   render() {
+    const that = this;
+    
     return (
       <View className='page'>
 
-  
         <View className="header">
           <View className="header__left" >
             <Image
-              src={`${userInfo.profile.avatarUrl}`}
+              src={that.state.avatarUrl}
               className="header__img"
             />
             <View className="header__info">
               <View className="header__info__name">
-                {userInfo.profile.nickname}
+                {that.state.nickname}
               </View>
-              <View>
+              {/* <View>
                 <Text className="header__info__level">LV.{userInfo.level}</Text>
-              </View>
+              </View> */}
+              {(!this.state.isLogin) && <View  onClick={this.onLogin.bind(this)}>
+                <Text className="header__info__level">微信授权登录</Text>
+              </View> }
             </View>
           </View>
-          {this.state.isLogin ? <AtIcon
+          {/* {this.state.isLogin ? <AtIcon
             prefixClass="iconfont"
             value="wechat"
             size="30"
@@ -116,12 +138,12 @@ export default class Index extends BasePage {
           color="#d43c33"
           className="exit_icon"
           onClick={this.signIn.bind(this)}
-        ></AtIcon>}
+        ></AtIcon>} */}
           
         </View>
 
         <View className="user_count">
-          <View
+          {/* <View
             className="user_count__sub"
           >
             <View className="user_count__sub--num">
@@ -136,7 +158,7 @@ export default class Index extends BasePage {
               {userInfo.profile.newFollows || 0}
             </View>
             <View>关注</View>
-          </View>
+          </View> */}
           {/* <View
             className="user_count__sub"
           >
@@ -149,7 +171,7 @@ export default class Index extends BasePage {
        
 
         <View className="user_brief">
-          <View className="user_brief__item">
+          {/* <View className="user_brief__item">
             <Image
               className="user_brief__item__img"
               src={require("../../assets/images/my/my_collection_icon.png")}
@@ -162,21 +184,22 @@ export default class Index extends BasePage {
               <Text className="at-icon at-icon-chevron-right"></Text>
             </View>
           </View>
-        
+         */}
           
           <View className="user_brief__item">
             <Image
               className="user_brief__item__img"
-              src={require("../../assets/images/my/my_radio.png")}
+              src={require("../../assets/images/my/my_collection_icon.png")}
             />
             <View
               className="user_brief__item__text"
-              onClick={this.goPage.bind(this)}
             >
-              <Text>我的任务</Text>
-              <Text className="at-icon at-icon-chevron-right"></Text>
+              <Text>性别:</Text>
+              <Text>{that.state.gender}</Text>
+              {/* <Text className="at-icon at-icon-chevron-right"></Text> */}
             </View>
           </View>
+        
           <View className="user_brief__item">
             <Image
               className="user_brief__item__img"

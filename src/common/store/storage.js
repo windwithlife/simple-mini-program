@@ -5,7 +5,7 @@ export default class ClientStorage {
         Taro.setStorageSync(key, value);
     }
     static getItem(key){
-        Taro.getStorageSync(key);
+        return Taro.getStorageSync(key);
     }
     static removeItem(key){
         Taro.removeStorageSync(key);

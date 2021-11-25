@@ -55,7 +55,7 @@ export default class Model {
     }else{
       fullPath = fullPath  + url;
     }
-    console.log('current url is ---->' + fullPath);
+    //console.log('current url is ---->' + fullPath);
     return fullPath;
   }
 
@@ -74,7 +74,7 @@ export default class Model {
         data: params,
         method: 'get',
         success(response) {
-          console.log(response);
+          //console.log(response);
           if (that.checkResponse(response)) {
             resolve(response.data.data);
           } else {
@@ -103,7 +103,7 @@ export default class Model {
         data: params,
         method: 'post',
         success(response) {
-          console.log(response);
+          //console.log(response);
           resolve(response.data);
           // if (that.checkResponse(response)) {
           //   resolve(response.data);

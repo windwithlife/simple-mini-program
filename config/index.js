@@ -1,5 +1,5 @@
 const config = {
-  projectName: 'taro-demo',
+  projectName: 'taro-mobile',
   date: '2021-9-8',
   designWidth: 750,
   deviceRatio: {
@@ -45,7 +45,7 @@ const config = {
     }
   },
   h5: {
-    publicPath: '/mini-web/',
+    publicPath: process.env.NODE_ENV==='development'? '/':'./',
     staticDirectory: 'static',
     postcss: {
       autoprefixer: {

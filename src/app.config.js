@@ -1,10 +1,13 @@
 export default {
   pages: [
-    "pages/test/index",
-    "pages/index/index",
-    "pages/swiperlist/index",
+    "pages/home/index",
+    "pages/goods/index",
+    "pages/goods/list",
+    "pages/goods/detail",
+    "pages/news/detail",
+    "pages/imagetext/detail",
     "pages/my/index",
-    "pages/list/index",
+    "pages/history/index",
     "pages/user/login/index",
     
    
@@ -17,21 +20,21 @@ export default {
   },
   tabBar: {
     list: [
+      // {
+      //   text: "首页",
+      //   pagePath:"pages/index/index",
+      //   selectedIconPath: "./assets/images/tab-cate-current.png",
+      //   iconPath: "./assets/images/tab-cate.png"
+      // },
       {
         text: "首页",
-        pagePath:"pages/index/index",
-        selectedIconPath: "./assets/images/tab-cate-current.png",
-        iconPath: "./assets/images/tab-cate.png"
-      },
-      {
-        text: "测试页",
-        pagePath: "pages/test/index",
+        pagePath: "pages/home/index",
         selectedIconPath: "./assets/images/tab-home-current.png",
         iconPath: "./assets/images/tab-home.png"
       },
       {
-        text: "任务",
-        pagePath: "pages/swiperlist/index",
+        text: "面板",
+        pagePath: "pages/goods/index",
         selectedIconPath: "./assets/images/tab-home-current.png",
         iconPath: "./assets/images/tab-home.png"
       },

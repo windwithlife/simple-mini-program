@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "dist/weapp/",
-  "projectname": "taro-demo",
+  "projectname": "board-mobile",
   "description": "just a demo",
   "appid": "wx066572582de37115",
   "setting": {
@@ -24,7 +24,7 @@
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": false,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],

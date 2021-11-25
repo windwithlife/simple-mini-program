@@ -3,6 +3,7 @@ import PageRouter from "./router";
 import { Component } from "react";
 import UbtClient from "../ubt/ubt-client";
 import {logDebug} from "../utils/error";
+import Client from "../client/client";
 
 let ubt_instance = new UbtClient();
 export default class BasePage extends Component{
@@ -11,6 +12,11 @@ export default class BasePage extends Component{
     }
     componentDidMount() {
         this.sendPV();
+        this.saveFootPrint();
+        
+    }
+    componentDidShow() { 
+        this.saveFootPrint();
     }
     gotoPage = (params) => {
         PageRouter.gotoPage(params);
@@ -26,6 +32,13 @@ export default class BasePage extends Component{
             ubt_instance.ubtSendPV({pageId:this.pageId});
         }
         
+    }
+    saveFootPrint=()=>{
+        
+        if(this.pageName){
+            //console.log('save foot proint...')
+            Client.saveFootPrint(this.pageName);
+        }  
     }
     ubtTrace=(key,value)=>{
         ubt_instance.ubtTrace(key,value);
