@@ -1,11 +1,9 @@
 
 
 import React from "react";
-import { View, Text, Image, Swiper, SwiperItem } from '@tarojs/components'
-import { AtButton, AtIcon, AtSearchBar } from 'taro-ui'
+import { View, Text, Image} from '@tarojs/components'
 import "taro-ui/dist/style/components/icon.scss";
-//import {Router} from '../../../common/base';
-import Router from '../../../common/page/router';
+import {Router} from 'simple-framework-mini/base';
 import "./entrypoint.less";
 
 const Page = (props) => {
@@ -16,7 +14,7 @@ const Page = (props) => {
   return (
     <View className="handle_list">
       <View className="list_title">品牌厂商</View>
-      
+
       {list.map(item => (
         <View
           key={item.id}
@@ -24,15 +22,6 @@ const Page = (props) => {
           onClick={gotoPage.bind(this, item.id)}
         >
           <View className="handle_list__item__icon-wrap">
-            {/* <AtIcon
-             
-               prefixClass="iconfont"
-               value={item.icon}
-               size="25"
-               color="#ffffff"
-               className="handle_list_item__icon"
-             ></AtIcon> */}
-
             <Image src={item.logo} className="handle_list_item__icon" />
           </View>
 

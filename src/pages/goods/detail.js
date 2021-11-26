@@ -7,7 +7,7 @@ import { View, Text, RichText,Image } from '@tarojs/components'
 import GoodsModel from '../../models/GoodsModel';
 
 import {BasePage} from 'simple-framework-mini/base';
-import * as RichTextHelper from '../../common/utils/richtext';
+import * as RichTextHelper from 'simple-framework-mini/utils';
 import './detail.less';
 
 

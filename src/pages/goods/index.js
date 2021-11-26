@@ -58,7 +58,7 @@ export default class Index extends BasePage {
     getListData = () => {
         // Promise 为 ES6 新增的API ，有疑问的请自行学习该方法的使用。
         /* 因无真实数据，当前方法模拟数据。正式项目中将此处替换为 数据请求即可 */
-        //Taro.showLoading();
+
         let that = this;
         Model.queryAllWithGoods().then((result)=>{
 
@@ -80,7 +80,7 @@ export default class Index extends BasePage {
                 leftArray: left,
                 mainArray: main
             },()=>{that.initScrollView()});
-            //Taro.hideLoading();
+
 
 
                 /* 等待滚动区域初始化完成 */

@@ -4,7 +4,7 @@ import React from "react";
 import { View, Text,Image,Swiper, SwiperItem } from '@tarojs/components'
 import { AtButton ,AtIcon,AtSearchBar} from 'taro-ui'
 import "taro-ui/dist/style/components/icon.scss";
-import {Router} from '../../../common/base';
+import {Router} from 'simple-framework-mini/base';
 import "./recommend.less";
 
 const Page = (props) => {
