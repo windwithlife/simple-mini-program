@@ -1,11 +1,15 @@
 
-import { Component } from 'react'
+
 import Taro from '@tarojs/taro'
-import { View, Text, RichText,Swiper, SwiperItem, ScrollView, Image } from '@tarojs/components'
-import './detail.less';
+import { View, Text, RichText,Image } from '@tarojs/components'
+//import BasePage from '../../common/page/BasePage';
+
 import GoodsModel from '../../models/GoodsModel';
-import BasePage from '../../common/page/BasePage';
+
+import {BasePage} from 'simple-framework-mini/base';
 import * as RichTextHelper from '../../common/utils/richtext';
+import './detail.less';
+
 
 export default class Index extends BasePage {
 
@@ -66,7 +70,7 @@ export default class Index extends BasePage {
                         <Text className="goods-operation-num">{goods.name}</Text>
                     </View>
                     <Text className="goods-stock">{goods.description}</Text>
-                   
+
                     {/* <View className="goods-price">￥{goods.price}</View> */}
                 </View>
                 <View className="goods-tab-box">

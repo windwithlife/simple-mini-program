@@ -3,7 +3,7 @@ import { View,  } from '@tarojs/components'
 import "taro-ui/dist/style/components/button.scss" // 按需引入
 import './index.less'
 import "taro-ui/dist/style/components/icon.scss";
-import "taro-ui/dist/style/components/search-bar.scss";
+
 import {BasePage} from "simple-framework-mini/base";
 
 import BrandModel from '../../models/BrandModel';
@@ -29,7 +29,6 @@ export default class Index extends BasePage {
 
   constructor(props){
     super(props);
-    //this.pageConfig = new PageConfig();
     this.pageId = "PID-TestPage";
     this.pageName ="首页"
   }
@@ -52,7 +51,7 @@ export default class Index extends BasePage {
           item.title = item.content = item.name;
           item.icon = "device";
       })
-      //console.log('handle data...',data);
+
       that.setState({handleList:data});
     });
 
@@ -61,7 +60,7 @@ export default class Index extends BasePage {
           item.copywriter = "新";
           item.picUrl = item.image;
       })
-      //console.log('news data...',data);
+
       that.setState({newsList:data});
     });
 

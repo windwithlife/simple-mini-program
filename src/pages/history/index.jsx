@@ -1,12 +1,12 @@
-import { Component } from 'react'
+
 import { View, Button, Text } from '@tarojs/components'
-import { AtButton, AtIcon } from 'taro-ui'
+
 import * as dayjs from 'dayjs';
 import "taro-ui/dist/style/components/button.scss" // 按需引入
 import "taro-ui/dist/style/components/icon.scss";
-import Client from '../../common/client/client';
+// import Client from '../../common/client/client';
 import './index.less'
-import BasePage from '../../common/page/BasePage';
+import {BasePage,ClientUser } from 'simple-framework-mini/base';
 
 
 
@@ -21,7 +21,7 @@ export default class Index extends BasePage {
   }
   componentDidMount() {
     super.componentDidMount();
-    let list = Client.getFootPrint();
+    let list = ClientUser.getFootPrint();
     this.setState({ visitList: list });
   }
 
@@ -31,7 +31,7 @@ export default class Index extends BasePage {
 
   componentDidHide() { }
   cleanVisitHistory =()=>{
-    Client.cleanFootPrint();
+    ClientUser.cleanFootPrint();
     this.setState({visitList:[]});
   }
   render() {
@@ -52,14 +52,8 @@ export default class Index extends BasePage {
             <View key={item.id} className="module-list">
               <View
                 className="module-list__item"
-              //data-id={item.id}
-              //onClick={() => handleLocation(item.id)}
               >
-                {/* <AtIcon
-                  prefixClass="iconfont"
-                  value={item.icon}
-                  className="module-list__icon"
-                /> */}
+
 
                 <View className="module-list__info">
                   <View className="title">{item.name}:</View>

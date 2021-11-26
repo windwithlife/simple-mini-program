@@ -62,7 +62,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "simple-framework-mini": "^0.1.17",
+    "simple-framework-mini": "^0.1.23",
     "stylelint": "9.3.0",
     "taro-parse": "^1.1.5"
   }

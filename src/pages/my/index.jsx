@@ -1,31 +1,17 @@
-import { Component } from 'react'
+
 import { View, Text,Image } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { AtButton ,AtIcon} from 'taro-ui'
-import Client from '../../common/client/client';
 
 import "taro-ui/dist/style/components/button.scss" // 按需引入
-
 import "taro-ui/dist/style/components/icon.scss";
-import BasePage from '../../common/page/BasePage';
-import ClientUser from '../../common/user/ClientUser';
+import {BasePage,ClientUser} from 'simple-framework-mini/base';
 import './index.less'
 
-const USER_INFO = "__userinfo__";
+
 
 let defaultAvatarUrl = 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png';
 
-const userInfo = {
-  profile:{
-    avatarUrl: '',
-    nickname: '匿名用户',
-    newFollows: 300,
-    eventCount: 40,
-    followeds: 400,
 
-  },
-  level: 4,
-}
 
 export default class Index extends BasePage {
 
@@ -42,7 +28,7 @@ export default class Index extends BasePage {
   }
 
 
-  componentDidMount() { 
+  componentDidMount() {
     console.log('Did Show in  DidMount....');
   }
 
@@ -50,12 +36,9 @@ export default class Index extends BasePage {
     console.log('Did Show in  WillUnMount....');
    }
 
-  componentDidShow() { 
+  componentDidShow() {
     console.log('Did Show in ....');
-     if(Client.isLogin()){
-       return;
-     }
-     
+
   }
 
   componentDidHide() { }
@@ -98,11 +81,11 @@ export default class Index extends BasePage {
     //   icon: "none"
     // });
   }
-  
+
 
   render() {
     const that = this;
-    
+
     return (
       <View className='page'>
 
@@ -139,7 +122,7 @@ export default class Index extends BasePage {
           className="exit_icon"
           onClick={this.signIn.bind(this)}
         ></AtIcon>} */}
-          
+
         </View>
 
         <View className="user_count">
@@ -168,7 +151,7 @@ export default class Index extends BasePage {
             <View>粉丝</View>
           </View> */}
         </View>
-       
+
 
         <View className="user_brief">
           {/* <View className="user_brief__item">
@@ -185,7 +168,7 @@ export default class Index extends BasePage {
             </View>
           </View>
          */}
-          
+
           <View className="user_brief__item">
             <Image
               className="user_brief__item__img"
@@ -199,7 +182,7 @@ export default class Index extends BasePage {
               {/* <Text className="at-icon at-icon-chevron-right"></Text> */}
             </View>
           </View>
-        
+
           <View className="user_brief__item">
             <Image
               className="user_brief__item__img"
@@ -214,15 +197,15 @@ export default class Index extends BasePage {
             </View>
           </View>
        </View>
-       
+
 
         <View className="page page-index">
-        
-        
-        
+
+
+
         </View>
       </View>
-     
+
     )
   }
 }

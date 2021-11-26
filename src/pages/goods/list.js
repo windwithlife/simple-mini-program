@@ -1,14 +1,16 @@
 import Taro from '@tarojs/taro'
-import { Component } from 'react'
-import { View, Text, Swiper, SwiperItem, ScrollView, Image } from '@tarojs/components'
+
+import { View,  ScrollView} from '@tarojs/components'
+// import Router from '../../common/page/router';
+// import BasePage from '../../common/page/BasePage';
+import {BasePage,Router} from 'simple-framework-mini/base';
+
 import './index.less'
-// import ListItem from './compoments/TaskListItem';
+
 import ListItem from './compoments/ListItem-ImageText-Goods';
-import LeftItem from './compoments/LeftSideItem';
-import Model from '../../models/BrandModel';
+
 import GoodsModel from '../../models/GoodsModel';
-import Router from '../../common/page/router';
-import BasePage from '../../common/page/BasePage';
+
 
 export default class Index extends BasePage {
 
@@ -45,8 +47,6 @@ export default class Index extends BasePage {
 
     componentDidHide() { }
 
-
-
     /* 初始化滚动区域 */
     initScrollView = () => {
         var that = this
@@ -66,12 +66,12 @@ export default class Index extends BasePage {
 
     }
 
-    
+
 
     render() {
         let that = this;
         const { scrollHeight, leftArray, mainArray, leftIndex, leftIntoView } = this.state
-        //console.log("scroll-height---->" + scrollHeight);
+
         return (
             <View className='container'>
 

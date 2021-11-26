@@ -1,13 +1,13 @@
 import Taro from '@tarojs/taro'
-import { Component } from 'react'
-import { View, Text, Swiper, SwiperItem, ScrollView,Image } from '@tarojs/components'
+import { View, Swiper, SwiperItem, ScrollView } from '@tarojs/components'
 import './index.less'
-// import ListItem from './compoments/TaskListItem';
+
 import ListItem from './compoments/ListItem-ImageText';
 import LeftItem from './compoments/LeftSideItem';
 import Model from '../../models/BrandModel';
-import Router from '../../common/page/router';
-import BasePage from '../../common/page/BasePage';
+// import Router from '../../common/page/router';
+// import BasePage from '../../common/page/BasePage';
+import {BasePage,Router} from 'simple-framework-mini/base';
 
 export default class Index extends BasePage {
 
@@ -22,7 +22,7 @@ export default class Index extends BasePage {
         super.componentDidMount();
         console.log('获取列表数据')
         this.getListData();
-       
+
     }
 
     componentWillUnmount() { }
@@ -61,7 +61,7 @@ export default class Index extends BasePage {
         //Taro.showLoading();
         let that = this;
         Model.queryAllWithGoods().then((result)=>{
-            
+
             let [left, main] = [[], []];
             left = left.concat(result);
             //console.log('brand with goods...',result);
@@ -72,26 +72,26 @@ export default class Index extends BasePage {
                 })
             });
 
-    
+
             console.log('-----------请求接口返回数据示例-------------');
             console.log('brand with goods===>',result);
-        
+
             this.setState({
                 leftArray: left,
                 mainArray: main
             },()=>{that.initScrollView()});
             //Taro.hideLoading();
-         
+
 
                 /* 等待滚动区域初始化完成 */
-            
+
             /* 获取列表数据，你的代码从此处开始 */
-            
 
-           
 
-  
-           
+
+
+
+
         });
     }
 
@@ -106,7 +106,7 @@ export default class Index extends BasePage {
     rightItemTap = (item) =>{
         //console.log(" click right item",item);
         Router.gotoPage({url:'/pages/goods/detail?goodsId=' + item.id});
-        
+
     }
 
     /* 轮播图切换 */
@@ -145,7 +145,7 @@ export default class Index extends BasePage {
                             >
                                 {
                                     leftArray.map((item, index) => {
-                                        
+
                                         return (
                                             // <View
                                             //     className={`item ${index == leftIndex ? 'active' : ''}`}
@@ -157,7 +157,7 @@ export default class Index extends BasePage {
                                             // </View>
                                             <LeftItem id={`left-${index}`}  active ={index == leftIndex ? 'active' : ''}
                                             key={item.id} onClick={this.leftTap.bind(that, index)} item={item}/>
-                                          
+
                                         )
                                     })
                                 }
@@ -192,7 +192,7 @@ export default class Index extends BasePage {
                                                         {
                                                             item.list.map((item2, index2) => {
                                                                 return (
-                                                                
+
                                                                     <ListItem onClick={that.rightItemTap} key={item2.id} item={item2}></ListItem>
                                                                 )
                                                             })
@@ -213,7 +213,7 @@ export default class Index extends BasePage {
                 </View >
 
                 {/* <View className="bottom-panel">
-                   
+
                     <View className="bottom-panel-text">
                         <View>这里底部内容占位区域，不需要则删除</View>
                         <View>可添加需放在页面底部的内容，比如购物车栏目</View>
